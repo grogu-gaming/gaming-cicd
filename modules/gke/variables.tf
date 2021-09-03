@@ -10,6 +10,10 @@ variable "region" {
   default = ""
 }
 
+variable "tags" {
+  default = "${var.cluster_name}-tags"
+}
+
 variable "gke_num_nodes" {
   default     = 1
   description = "number of gke nodes"
