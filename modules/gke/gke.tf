@@ -13,8 +13,6 @@ resource "google_container_cluster" "primary" {
   network    = google_compute_network.vpc.name
   subnetwork = google_compute_subnetwork.subnet.name
 
-  tags = [var.tags]
-
   # Enable Workload Identity for cluster
   #workload_identity_config {
   #  identity_namespace = "${var.project_id}.svc.id.goog"
@@ -40,6 +38,8 @@ resource "google_container_node_pool" "primary_nodes" {
     }
 
     machine_type = var.machine_type
+    
+    tags = [var.tags]
 
     # Enable Workload Identity for node pool
     # workload_metadata_config {
