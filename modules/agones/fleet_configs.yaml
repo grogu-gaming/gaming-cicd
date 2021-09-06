@@ -6,10 +6,33 @@ data:
   quilkin.yaml: |
     version: v1alpha1
     proxy:
-      port: 26001
+      id: proxy-demo
+      port: 26001 
     static:
-      endpoints:
-        - address: 127.0.0.1:8080
+      filters:
+        - name: quilkin.extensions.filters.debug.v1alpha1.Debug # Debug filter: every packet will be logged
+          config:
+            id: debug-1
+    
+        - name: quilkin.extensions.filters.capture_bytes.v1alpha1.CaptureBytes # Capture and remove the authentication token
+          config:
+              strategy: PREFIX
+              size: 3
+              remove: true
+              metadataKey: quilkin.dev
+        - name: quilkin.extensions.filters.token_router.v1alpha1.TokenRouter
+          config:
+              metadataKey: quilkin.dev
+      endpoints: 
+        - name: Game Server No. 1
+          address: 127.0.0.1:8080 
+          metadata:
+              quilkin.dev:
+                tokens:
+                    - YWJj # abc
+                    - MXg3aWp5Ng== # Authentication is provided by these ids, and matched against 
+                    - OGdqM3YyaQ== # the value stored in Filter dynamic metadata
+
 ---
 apiVersion: "agones.dev/v1"
 kind: Fleet
