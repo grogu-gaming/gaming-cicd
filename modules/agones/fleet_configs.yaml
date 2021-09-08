@@ -24,7 +24,6 @@ data:
           config:
               metadataKey: quilkin.dev
       endpoints: 
-        - name: Game Server No. 1
           address: 127.0.0.1:8080 
           metadata:
               quilkin.dev:
