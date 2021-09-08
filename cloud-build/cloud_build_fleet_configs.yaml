@@ -1,0 +1,60 @@
+steps:
+ - name: gcr.io/cloud-builders/git
+   args:
+     - '-c'
+     - >
+
+       echo "$$SSHKEY" > /root/.ssh/id_rsa
+
+       chmod 400 /root/.ssh/id_rsa
+
+       ssh-keyscan -t rsa gitlab.endpoints.cn-gaming-cicd.cloud.goog >>
+       /root/.ssh/known_hosts
+
+       ssh -T git@gitlab.endpoints.cn-gaming-cicd.cloud.goog
+   entrypoint: bash
+   secretEnv:
+     - SSHKEY
+   volumes:
+     - name: ssh
+       path: /root/.ssh
+ - name: gcr.io/cloud-builders/git
+   args:
+     - clone
+     - >-
+       git@gitlab.endpoints.cn-gaming-cicd.cloud.goog:gaming-ci-cd-automation/core.git
+     - ./core
+   volumes:
+     - name: ssh
+       path: /root/.ssh
+ - name: gcr.io/cloud-builders/gcloud
+   args:
+     - '-c'
+     - >
+       echo "enter 1 bash command per line"
+
+
+       gcloud config set project $PROJECT_ID
+
+
+       gcloud config set compute/region us-central1 
+
+
+       kubectl config current-context
+
+
+       gcloud container clusters get-credentials tf-cluster-1 --region
+       us-central1 --project $PROJECT_ID
+
+
+       kubectl apply -f fleet_configs.yaml
+   dir: core/modules/agones
+   entrypoint: bash
+   volumes:
+     - name: ssh
+       path: /root/.ssh
+timeout: 3600s
+availableSecrets:
+ secretManager:
+   - versionName: projects/$PROJECT_ID/secrets/ssh-key/versions/1
+     env: SSHKEY
