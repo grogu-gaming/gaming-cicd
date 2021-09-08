@@ -1,0 +1,91 @@
+steps:
+ - name: gcr.io/cloud-builders/git
+   args:
+     - '-c'
+     - >
+
+       echo "$$SSHKEY" > /root/.ssh/id_rsa
+
+       chmod 400 /root/.ssh/id_rsa
+
+       ssh-keyscan -t rsa gitlab.endpoints.cn-gaming-cicd.cloud.goog >> /root/.ssh/known_hosts
+
+       ssh -T git@gitlab.endpoints.cn-gaming-cicd.cloud.goog
+   entrypoint: bash
+   secretEnv:
+     - SSHKEY
+   volumes:
+     - name: ssh
+       path: /root/.ssh
+ - name: gcr.io/cloud-builders/git
+   args:
+     - clone
+     - >-
+       git@gitlab.endpoints.cn-gaming-cicd.cloud.goog:gaming-ci-cd-automation/core.git
+     - ./core
+   volumes:
+     - name: ssh
+       path: /root/.ssh
+ - name: gcr.io/cloud-builders/git
+   args:
+     - '-c'
+     - |
+       sed -i'' -e  "s/YOUR_PROJECT_ID/$PROJECT_ID/g" terraform.tfvars
+   dir: core
+   id: Replace the project id
+   entrypoint: bash
+   volumes:
+     - name: ssh
+       path: /root/.ssh
+ - name: gcr.io/cloud-builders/git
+   args:
+     - '-c'
+     - |
+       sed -i'' -e  "s/my-test-cluster/tf-cluster-1/g" terraform.tfvars
+   dir: core
+   id: Replace the cluster name
+   entrypoint: bash
+   volumes:
+     - name: ssh
+       path: /root/.ssh
+ - name: gcr.io/cloud-builders/git
+   args:
+     - '-c'
+     - |
+       cat terraform.tfvars
+   dir: core
+   id: Check the variable replacement
+   entrypoint: bash
+   volumes:
+     - name: ssh
+       path: /root/.ssh
+ - name: 'hashicorp/terraform:1.0.5'
+   args:
+     - '-c'
+     - |
+       terraform init
+   dir: core
+   id: tf init
+   entrypoint: sh
+   volumes:
+     - name: ssh
+       path: /root/.ssh
+ - name: 'hashicorp/terraform:1.0.5'
+   args:
+     - '-c'
+     - |
+       terraform plan
+   dir: core
+   id: tf plan
+   entrypoint: sh
+   volumes:
+     - name: ssh
+       path: /root/.ssh
+ - name: 'hashicorp/terraform:1.0.5'
+   args:
+     - '-c'
+     - |
+       terraform apply -auto-approve
+   dir: core
+   id: tf apply
+   entrypoint: sh
