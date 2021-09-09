@@ -50,7 +50,7 @@ Type yes and press Enter.
 
 
 
-![alt_text](https://lh4.googleusercontent.com/yr0xBiBJC3xn_FxX9OfyCcMilj6bNYHwKmZC-fsMGIeXdcYVQB4VDAwAArolk0mrwM0r9MOVGrq_s_2jJ7y97zcbnpE4XG0fbQjhZIFzJtZ0cUc5EG8XlYSG_n_NJsDNpYGIBImxSnrkAdM1vISA5DROKGiWfzunrdFdbTt5MKybKwBH=s0 "image_tooltip")
+![alt_text](https://lh6.googleusercontent.com/ZnlcGM-oRd7In2e2Im59_6KDplh0X2GFxmRZ5IWGMs3qdndYh72bft9PwixjuaQ_ZjmVYN2CfcArHX6PveT0dUxJXz1gUNyVRnvghr7WJ_TqGDy-23wCY5iqLw7Mi8YETVs23Cu-8iStUubFYoYfYXZTAVCkDASxQo4y6mQReR_A2m2J=s0 "image_tooltip")
 
 
 You should receive a **Welcome to GitLab, @username! **Message.
@@ -96,10 +96,7 @@ Go to the cloud build, create a webhook trigger:
 4. **Substitutions**: define 2 substitution variables using this field.
 
     
-<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image3.png "image_tooltip")
+![alt_text](https://lh4.googleusercontent.com/yr0xBiBJC3xn_FxX9OfyCcMilj6bNYHwKmZC-fsMGIeXdcYVQB4VDAwAArolk0mrwM0r9MOVGrq_s_2jJ7y97zcbnpE4XG0fbQjhZIFzJtZ0cUc5EG8XlYSG_n_NJsDNpYGIBImxSnrkAdM1vISA5DROKGiWfzunrdFdbTt5MKybKwBH=s0 "image_tooltip")
 
 
 Use the “curl” command to trigger cloud build, specify the cluster name and the region  using the JSON format, the parameters will be replaced dynamically in the cloud build config file.
@@ -169,10 +166,7 @@ Create the substitution variables.
 
     
 
-<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image4.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image4.png "image_tooltip")
+![alt_text](https://lh3.googleusercontent.com/Qv6vlAcIdwEUO23cT8iJJIaM9k6BPVHqHsPyJoj2jXfyA9PAUoQojmq9SdQEhlzQrKVOOehrDrScJlGbpdSPFsspk14NwKmHH-9K6BT-n687iphEXDNTFoxPAmziwspcMVdokZQ901ARvl14wekgpbJIxvlKplgoh-LI8l7STFSqPVNb=s0 "image_tooltip")
 
 
 Use “curl” command to trigger cloud build, it will apply the fleet configurations with specified yaml file name. In this demo, we use the simple game server to test the Quilkin proxy, so “config_file” is “fleet_configs_simple.yaml”.
@@ -196,10 +190,8 @@ The output should look like this:
 
 
 
-<p id="gdcalert6" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image6.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert7">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
-
-![alt_text](images/image6.png "image_tooltip")
+![alt_text](https://lh4.googleusercontent.com/JtveSZ6O3liTzOc1Jkl_LJYA95um7kxCOf97HLGdgE7593AU_8jsNeaouTPwaItPBkOBPxrjjUTMC7go1tBa0GNC-vlEPjmcg-jI0uhrLy7uV0HnE9xeCq3DMxFKUqvDYKiLSaBpMI8lk1uDHTObUlBwMz3ZjNMdHDK2GxizoqUL1LsZ=s0 "image_tooltip")
 
 
 
@@ -211,18 +203,15 @@ The simple game server will echo the message back, and the message should be “
 
 
 
-<p id="gdcalert7" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image7.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert8">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
-
-![alt_text](images/image7.png "image_tooltip")
+![alt_text](https://lh5.googleusercontent.com/Rvkf19wvIQ599JAhLelydaK0rBiFIdzkLP1PL6oN9b-r6y3TLlDlpIcmC3r6OCITy-nWLZg2IaFrfjHq5xPZh4iGQqDuD-P3yi88Pe5JQKl9YQUlIDYnLGcNKXcFegNbG7h9JLMBcpRso_dfvjm2Kbq72oS1JPG9MPsZKsLFx9J-I1V4=s0 "image_tooltip")
 
 
 After the game server “simple-game-server-7qsr8-tlmvh” receives an “EXIT” message, it will shut down the game server, and create a new one. You should see that a new game server “simple-game-server-7qsr8-gszqf” is created, the port is changed from “7040” to “7537”.
 
 
 
-<p id="gdcalert8" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image8.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert9">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
-![alt_text](images/image8.png "image_tooltip")
+![alt_text](https://lh5.googleusercontent.com/1BZyySFMUjkLbHFXqMwdRwGaBI1IY8n1l7o33uPTOH-uxtZXg4Pp8yL0hAI9iddNEBnsF4EmK2DMcn4uhjhWomcn75zyOeAG-hQnTqUpzdmkG7DhGUQM1TeYlgJ0UogDrbWrV7jtSOzgY3vvAMb4NTzKJjbUlxNJn7Bt9Eg6wKJTNAP3=s0 "image_tooltip")
 
