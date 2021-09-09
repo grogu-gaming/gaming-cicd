@@ -1,7 +1,5 @@
 # Webhook URL 
-# curl -X POST -H "application/json" 
-# "https://cloudbuild.googleapis.com/v1/projects/cn-gaming-cicd/triggers/fleet-config-trigger:webhook?key=AIzaSyBe45IJgmgE3Ssoekh77cl3Z1riBmG7N_I&secret=xh8twKFPVoA4SG2J9MxXY20sxD50EMVd" 
-# -d '{"cluster_name":"cluster-tf-1", "region":"us-central1", "config_file":"fleet_configs_simple.yaml"}'
+# curl -X POST -H "application/json" "https://cloudbuild.googleapis.com/v1/projects/cn-gaming-cicd/triggers/fleet-config-trigger:webhook?key=AIzaSyBe45IJgmgE3Ssoekh77cl3Z1riBmG7N_I&secret=xh8twKFPVoA4SG2J9MxXY20sxD50EMVd" -d '{"cluster_name":"cluster-tf-1", "region":"us-central1", "config_file":"fleet_configs_simple.yaml"}'
 steps:
   # step 1: ssh authentication
   - name: gcr.io/cloud-builders/git
