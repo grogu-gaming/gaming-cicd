@@ -84,10 +84,11 @@ Click the **Create secret** button to create your secret.
 
 Write [terraform scripts](https://gitlab.endpoints.cn-gaming-cicd.cloud.goog/gaming-ci-cd-automation/core/-/blob/main/main.tf) to create a VPC and GKE cluster, use Helm to install Agones.
 Write a [cloud build config file](https://gitlab.endpoints.cn-gaming-cicd.cloud.goog/gaming-ci-cd-automation/core/-/blob/main/cloud-build/cloud_build_terraform.yaml) to apply terraform scripts. It includes the following steps:
-    1. SSH authentication and clone the Gitlab repository
-    2. Replace the project id field
-    3. Replace the cluster name field
-    4. Terraform init, plan and apply
+1. SSH authentication and clone the Gitlab repository
+2. Replace the project id field
+3. Replace the cluster name field
+4. Terraform init, plan and apply
+
 Go to the cloud build, create a webhook trigger:
     Click **Create trigger**.
     Enter the following trigger settings:
@@ -121,12 +122,12 @@ curl -X POST -H "application/json" "https://cloudbuild.googleapis.com/v1/project
 
 
 Write a [fleet config file](https://gitlab.endpoints.cn-gaming-cicd.cloud.goog/gaming-ci-cd-automation/core/-/blob/main/modules/agones/fleet_configs_simple.yaml).In this demo, we use the simple game server to test the Quilkin proxy. 
-    1. Create a fleet with 2 replica simple game servers. we’ll take the example container  that Agones provides for the simple game server.
-    2. Create a ConfigMap to store the yaml for a static configuration for Quilkin that will accept connections on port 26002 and route then to the simple game server on port 7654.
+1. Create a fleet with 2 replica simple game servers. we’ll take the example container  that Agones provides for the simple game server.
+2. Create a ConfigMap to store the yaml for a static configuration for Quilkin that will accept connections on port 26002 and route then to the simple game server on port 7654.
         
-        The CaptureBytes filter will find the first 3 bytes within a packet, and capture it into Filter Dynamic Metadata, so that it can be utilised by filters further down the chain, which is the TokenRouter filter. This TokenRouter Filter compares the token found in the Filter Dynamic Metadata from the  CaptureBytes Filter, and compares it to Endpoint's tokens, and sends packets to those Endpoints only if there is a match. 
+    The CaptureBytes filter will find the first 3 bytes within a packet, and capture it into Filter Dynamic Metadata, so that it can be utilised by filters further down the chain, which is the TokenRouter filter. This TokenRouter Filter compares the token found in the Filter Dynamic Metadata from the  CaptureBytes Filter, and compares it to Endpoint's tokens, and sends packets to those Endpoints only if there is a match. 
         
-        In this example, the base64 encoded token is “YWJj”, if the token is found in the first 3 bytes within the packet, it will be removed and sended the rest of the message to the “127.0.0.1:7654”, which is listened by the simple game server. 
+    In this example, the base64 encoded token is “YWJj”, if the token is found in the first 3 bytes within the packet, it will be removed and sended the rest of the message to the “127.0.0.1:7654”, which is listened by the simple game server. 
     
     
 ```
@@ -164,11 +165,13 @@ data:
                     - MXg3aWp5Ng== # Authentication is provided by these ids, and matched against 
                     - OGdqM3YyaQ== # the value stored in Filter dynamic metadata
 ```    
-    3. Run Quilkin alongside each dedicated game server as a sidecar.
+3. Run Quilkin alongside each dedicated game server as a sidecar.
+
 Write the [cloud build config file](https://gitlab.endpoints.cn-gaming-cicd.cloud.goog/gaming-ci-cd-automation/core/-/blob/main/cloud-build/cloud_build_fleet_configs.yaml) to apply the fleet configurations. It includes the following steps:
-    1. SSH authentication and clone the Gitlab repository
-    2. Connect the GKE cluster
-    3. Apply the fleet_config.yaml file
+1. SSH authentication and clone the Gitlab repository
+2. Connect the GKE cluster
+3. Apply the fleet_config.yaml file
+
 Create the substitution variables.
 
     
@@ -187,8 +190,8 @@ curl -X POST -H "application/json" "https://cloudbuild.googleapis.com/v1/project
 
 
 Test the fleet creation.
-    1. In Cloud Build history, it was successfully built.
-    2. In the cloud shell, verify that gameservers were created, and the state is ready.
+1. In Cloud Build history, it was successfully built.
+2. In the cloud shell, verify that gameservers were created, and the state is ready.
 
 ```
 Kubectl get gs
