@@ -1,20 +1,4 @@
 
-<p style="color: red; font-weight: bold">>>>>>  gd2md-html alert:  ERRORs: 0; WARNINGs: 0; ALERTS: 8.</p>
-<ul style="color: red; font-weight: bold"><li>See top comment block for details on ERRORs and WARNINGs. <li>In the converted Markdown or HTML, search for inline alerts that start with >>>>>  gd2md-html alert:  for specific instances that need correction.</ul>
-
-<p style="color: red; font-weight: bold">Links to alert messages:</p><a href="#gdcalert1">alert1</a>
-<a href="#gdcalert2">alert2</a>
-<a href="#gdcalert3">alert3</a>
-<a href="#gdcalert4">alert4</a>
-<a href="#gdcalert5">alert5</a>
-<a href="#gdcalert6">alert6</a>
-<a href="#gdcalert7">alert7</a>
-<a href="#gdcalert8">alert8</a>
-
-<p style="color: red; font-weight: bold">>>>>> PLEASE check and correct alert issues and delete this message and the inline alerts.<hr></p>
-
-
-
 ## Setting up GitLab SSH key
 
 Reference: [how to generate a SSH key](https://gitlab.endpoints.cn-gaming-cicd.cloud.goog/help/ssh/README#generating-a-new-ssh-key-pair)
@@ -99,7 +83,6 @@ Click the **Create secret** button to create your secret.
 ## Setting up GKE cluster and Agones using one command
 
 
-
 1. Write [terraform scripts](https://gitlab.endpoints.cn-gaming-cicd.cloud.goog/gaming-ci-cd-automation/core/-/blob/main/main.tf) to create a VPC and GKE cluster, use Helm to install Agones.
 2. Write a [cloud build config file](https://gitlab.endpoints.cn-gaming-cicd.cloud.goog/gaming-ci-cd-automation/core/-/blob/main/cloud-build/cloud_build_terraform.yaml) to apply terraform scripts. It includes the following steps:
     1. SSH authentication and clone the Gitlab repository
@@ -107,20 +90,19 @@ Click the **Create secret** button to create your secret.
     3. Replace the cluster name field
     4. Terraform init, plan and apply
 3. Go to the cloud build, create a webhook trigger:
-1. Click **Create trigger**.
-2. Enter the following trigger settings:
-    1. **Name**: A name for your trigger.
-    2. **Event**: Select **Webhook event** to set up your trigger to start builds in response to incoming webhook events.
-    3. **Webhook URL**: Use the webhook URL to authenticate incoming webhook events.
-    4. use an existing secret:
-        1. Select **Use existing**.
-        2. In the **Secret** field, select the name of the secret you want to use from the drop-down menu or follow the instructions to add a secret by resource ID.
-        3. In the **Secret version** field, select your secret version from the drop-down menu.
-3. **Configuration**: Copy and paste the inline build config file.
-4. **Substitutions**: define 2 substitution variables using this field.
+    1. Click **Create trigger**.
+    2. Enter the following trigger settings:
+        1. **Name**: A name for your trigger.
+        2. **Event**: Select **Webhook event** to set up your trigger to start builds in response to incoming webhook events.
+        3. **Webhook URL**: Use the webhook URL to authenticate incoming webhook events.
+        4. use an existing secret:
+            1. Select **Use existing**.
+            2. In the **Secret** field, select the name of the secret you want to use from the drop-down menu or follow the instructions to add a secret by resource ID.
+            3. In the **Secret version** field, select your secret version from the drop-down menu.
+    3. **Configuration**: Copy and paste the inline build config file.
+    4. **Substitutions**: define 2 substitution variables using this field.
 
     
-
 <p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 
@@ -129,10 +111,9 @@ Click the **Create secret** button to create your secret.
 
 4. Use the “curl” command to trigger cloud build, specify the cluster name and the region  using the JSON format, the parameters will be replaced dynamically in the cloud build config file.
 
-    ```
+```
 curl -X POST -H "application/json" "https://cloudbuild.googleapis.com/v1/projects/cn-gaming-cicd/triggers/core-trigger:webhook?key=AIzaSyBe45IJgmgE3Ssoekh77cl3Z1riBmG7N_I&secret=9LvtgKaNTnKA1ATGBA_167JJPIWynkbB" -d '{"cluster_name":"cluster-xyz", "region":"us-central1"}'
 ```
-
 
 
 
@@ -143,14 +124,9 @@ curl -X POST -H "application/json" "https://cloudbuild.googleapis.com/v1/project
 1. Write a [fleet config file](https://gitlab.endpoints.cn-gaming-cicd.cloud.goog/gaming-ci-cd-automation/core/-/blob/main/modules/agones/fleet_configs_simple.yaml).In this demo, we use the simple game server to test the Quilkin proxy. 
     1. Create a fleet with 2 replica simple game servers. we’ll take the example container  that Agones provides for the simple game server.
     2. Create a ConfigMap to store the yaml for a static configuration for Quilkin that will accept connections on port 26002 and route then to the simple game server on port 7654.
-
         The CaptureBytes filter will find the first 3 bytes within a packet, and capture it into Filter Dynamic Metadata, so that it can be utilised by filters further down the chain, which is the TokenRouter filter. This TokenRouter Filter compares the token found in the Filter Dynamic Metadata from the  CaptureBytes Filter, and compares it to Endpoint's tokens, and sends packets to those Endpoints only if there is a match. 
-
-
         In this example, the base64 encoded token is “YWJj”, if the token is found in the first 3 bytes within the packet, it will be removed and sended the rest of the message to the “127.0.0.1:7654”, which is listened by the simple game server. 
-
-
-        ```
+```
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -184,10 +160,8 @@ data:
                     - YWJj # abc
                     - MXg3aWp5Ng== # Authentication is provided by these ids, and matched against 
                     - OGdqM3YyaQ== # the value stored in Filter dynamic metadata
-```
-
-
-    3.  Run Quilkin alongside each dedicated game server as a sidecar.
+```    
+    3. Run Quilkin alongside each dedicated game server as a sidecar.
 2. Write the [cloud build config file](https://gitlab.endpoints.cn-gaming-cicd.cloud.goog/gaming-ci-cd-automation/core/-/blob/main/cloud-build/cloud_build_fleet_configs.yaml) to apply the fleet configurations. It includes the following steps:
     1. SSH authentication and clone the Gitlab repository
     2. Connect the GKE cluster
@@ -204,7 +178,7 @@ data:
 
 4. Use “curl” command to trigger cloud build, it will apply the fleet configurations with specified yaml file name. In this demo, we use the simple game server to test the Quilkin proxy, so “config_file” is “fleet_configs_simple.yaml”.
 
-    ```
+```
 curl -X POST -H "application/json" "https://cloudbuild.googleapis.com/v1/projects/cn-gaming-cicd/triggers/fleet-config-trigger:webhook?key=AIzaSyBe45IJgmgE3Ssoekh77cl3Z1riBmG7N_I&secret=xh8twKFPVoA4SG2J9MxXY20sxD50EMVd" -d '{"cluster_name":"cluster-xyz", "region":"us-central1", "config_file":"fleet_configs_simple.yaml"}'
 ```
 
@@ -222,7 +196,7 @@ curl -X POST -H "application/json" "https://cloudbuild.googleapis.com/v1/project
 
     2. In the cloud shell, verify that gameservers were created, and the state is ready.
 
-        ```
+```
 Kubectl get gs
 ```
 
