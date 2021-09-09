@@ -90,17 +90,17 @@ Write a [cloud build config file](https://gitlab.endpoints.cn-gaming-cicd.cloud.
 4. Terraform init, plan and apply
 
 Go to the cloud build, create a webhook trigger:
-    Click **Create trigger**.
-    Enter the following trigger settings:
-        **Name**: A name for your trigger.
-        **Event**: Select **Webhook event** to set up your trigger to start builds in response to incoming webhook events.
-        **Webhook URL**: Use the webhook URL to authenticate incoming webhook events.
-        use an existing secret:
-            Select **Use existing**.
-            In the **Secret** field, select the name of the secret you want to use from the drop-down menu or follow the instructions to add a secret by resource ID.
-            In the **Secret version** field, select your secret version from the drop-down menu.
-    **Configuration**: Copy and paste the inline build config file.
-    **Substitutions**: define 2 substitution variables using this field.
+1. Click **Create trigger**.
+2. Enter the following trigger settings:
+    a. **Name**: A name for your trigger.
+    b. **Event**: Select **Webhook event** to set up your trigger to start builds in response to incoming webhook events.
+    c. **Webhook URL**: Use the webhook URL to authenticate incoming webhook events.
+    d. use an existing secret:
+        1) Select **Use existing**.
+        2) In the **Secret** field, select the name of the secret you want to use from the drop-down menu or follow the instructions to add a secret by resource ID.
+        3) In the **Secret version** field, select your secret version from the drop-down menu.
+3. **Configuration**: Copy and paste the inline build config file.
+4. **Substitutions**: define 2 substitution variables using this field.
 
     
 <p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
