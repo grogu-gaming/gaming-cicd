@@ -1,28 +1,3 @@
-<!-- Output copied to clipboard! -->
-
-<!-----
-NEW: Check the "Suppress top comment" option to remove this info from the output.
-
-Conversion time: 1.559 seconds.
-
-
-Using this Markdown file:
-
-1. Paste this output into your source file.
-2. See the notes and action items below regarding this conversion run.
-3. Check the rendered output (headings, lists, code blocks, tables) for proper
-   formatting and use a linkchecker before you publish this page.
-
-Conversion notes:
-
-* Docs to Markdown version 1.0β31
-* Thu Sep 09 2021 01:04:43 GMT-0700 (PDT)
-* Source doc: Readme.md
-* Tables are currently converted to HTML tables.
-* This document has images: check for >>>>>  gd2md-html alert:  inline image link in generated source and store images to your server. NOTE: Images in exported zip file from Google Docs may not appear in  the same order as they do in your doc. Please check the images!
-
------>
-
 
 <p style="color: red; font-weight: bold">>>>>>  gd2md-html alert:  ERRORs: 0; WARNINGs: 0; ALERTS: 8.</p>
 <ul style="color: red; font-weight: bold"><li>See top comment block for details on ERRORs and WARNINGs. <li>In the converted Markdown or HTML, search for inline alerts that start with >>>>>  gd2md-html alert:  for specific instances that need correction.</ul>
@@ -68,6 +43,7 @@ Copy the content in **id_rsa.pub**, paste it on gitlab.
 
 
 ![alt_text](images/image1.png "image_tooltip")
+
 
 
 Click **Add key.**
@@ -213,9 +189,9 @@ data:
 
     3.  Run Quilkin alongside each dedicated game server as a sidecar.
 2. Write the [cloud build config file](https://gitlab.endpoints.cn-gaming-cicd.cloud.goog/gaming-ci-cd-automation/core/-/blob/main/cloud-build/cloud_build_fleet_configs.yaml) to apply the fleet configurations. It includes the following steps:
-    4. SSH authentication and clone the Gitlab repository
-    5. Connect the GKE cluster
-    6. Apply the fleet_config.yaml file
+    1. SSH authentication and clone the Gitlab repository
+    2. Connect the GKE cluster
+    3. Apply the fleet_config.yaml file
 3. Create the substitution variables.
 
     
@@ -234,7 +210,7 @@ curl -X POST -H "application/json" "https://cloudbuild.googleapis.com/v1/project
 
 
 5. Test the fleet creation.
-    7. In Cloud Build history, it was successfully built.
+    1. In Cloud Build history, it was successfully built.
 
         
 
@@ -244,7 +220,7 @@ curl -X POST -H "application/json" "https://cloudbuild.googleapis.com/v1/project
 ![alt_text](images/image5.png "image_tooltip")
 
 
-    8. In the cloud shell, verify that gameservers were created, and the state is ready.
+    2. In the cloud shell, verify that gameservers were created, and the state is ready.
 
         ```
 Kubectl get gs
@@ -263,7 +239,7 @@ The output should look like this:
 
 
 
-## Validation of the token filters
+## Test the Quilkin Proxy
 
 Run [SimpleGameServerQuilkinTest.py](https://gitlab.endpoints.cn-gaming-cicd.cloud.goog/gaming-ci-cd-automation/core/-/blob/main/QuilkinTest/SimpleGameServerQuilkinTest.py) to send a UDP package of message “abcEXIT”, “abc” is the first 3 bytes of the message, and it matches the token, so it will be removed by the filter, and pass “EXIT” to the game server.
 
