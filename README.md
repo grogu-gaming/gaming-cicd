@@ -18,14 +18,10 @@ cat ~/.ssh/id_rsa.pub ​​| clip
 ```
 
 
-Copy the content in **id_rsa.pub**, paste it on gitlab.
+Copy the content in **id_rsa.pub**, paste it on GitLab SSH Key.
 
 
-
-<p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image1.png "image_tooltip")
+<img src="https://lh4.googleusercontent.com/F_kptPNQnTFf5NTjfzXmaxJXQiucZ2hNCpmxwwK9JS1A1-ledHV1BL5ATMQyy6eIPQ512ENYGvOgDd1oU2OWFn6hr1dMjGjO5eAq6NXfb_H0ZK7OTD4jXb29Kv1nWxwBn2WlOe1rK2AAvoujprsqxT9abYaw80azflzp1suWOc0TQmxG=s0" alt="image text" title="imae Title" />
 
 
 
