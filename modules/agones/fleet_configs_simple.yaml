@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: quilkin-config-simple
 data:
-  quilkin.yaml: |
+  quilkin.yaml: |  # quilkin configuration
     version: v1alpha1
     proxy:
       id: proxy-demo-simple
@@ -13,7 +13,6 @@ data:
         - name: quilkin.extensions.filters.debug.v1alpha1.Debug # Debug filter: every packet will be logged
           config:
             id: debug-1
-    
         - name: quilkin.extensions.filters.capture_bytes.v1alpha1.CaptureBytes # Capture and remove the authentication token
           config:
               strategy: PREFIX
@@ -23,15 +22,14 @@ data:
         - name: quilkin.extensions.filters.token_router.v1alpha1.TokenRouter
           config:
               metadataKey: quilkin.dev
-      endpoints: 
+      endpoints:
         - address: 127.0.0.1:7654
-          metadata:
-              quilkin.dev:
-                tokens:
-                    - YWJj # abc
-                    - MXg3aWp5Ng== # Authentication is provided by these ids, and matched against 
-                    - OGdqM3YyaQ== # the value stored in Filter dynamic metadata
-
+          metadata: # Metadata associated with the endpoint
+            quilkin.dev:
+              tokens:
+                - YWJj # abc
+                - MXg3aWp5Ng== # the connection byte array to route to, encoded as base64 (string value: 1x7ijy6)
+                - OGdqM3YyaQ== # (string value: 8gj3v2i)
 ---
 apiVersion: "agones.dev/v1"
 kind: Fleet
