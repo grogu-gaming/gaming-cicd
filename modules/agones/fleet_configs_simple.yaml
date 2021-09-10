@@ -24,7 +24,7 @@ data:
           config:
               metadataKey: quilkin.dev
       endpoints: 
-          address: 127.0.0.1:7654
+        - address: 127.0.0.1:7654
           metadata:
               quilkin.dev:
                 tokens:
