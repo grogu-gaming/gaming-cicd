@@ -191,7 +191,7 @@ The output should look like this:
 
 
 
-![alt_text](https://lh4.googleusercontent.com/JtveSZ6O3liTzOc1Jkl_LJYA95um7kxCOf97HLGdgE7593AU_8jsNeaouTPwaItPBkOBPxrjjUTMC7go1tBa0GNC-vlEPjmcg-jI0uhrLy7uV0HnE9xeCq3DMxFKUqvDYKiLSaBpMI8lk1uDHTObUlBwMz3ZjNMdHDK2GxizoqUL1LsZ=s0 "image_tooltip")
+![alt_text](https://lh6.googleusercontent.com/S9xqnfKxvrsS4rxtHiBE-0DIht0huN0tJo0PfcFJErXkKlBLk-C98qrSQrHG84-xLKn8acuOg1M-OQYp2dD3-xkBBWRBOVL-GYONPnP0sfgK10zKhBUv5eaLjM-Xnya9qd2n7nR0HNNEEHbiRTfYQtt-kuhOlt3u1uk6KBUZLLFzSnW8=s0 "image_tooltip")
 
 
 
