@@ -204,7 +204,7 @@ The simple game server will echo the message back, and the message should be “
 
 
 
-![alt_text](https://lh5.googleusercontent.com/Rvkf19wvIQ599JAhLelydaK0rBiFIdzkLP1PL6oN9b-r6y3TLlDlpIcmC3r6OCITy-nWLZg2IaFrfjHq5xPZh4iGQqDuD-P3yi88Pe5JQKl9YQUlIDYnLGcNKXcFegNbG7h9JLMBcpRso_dfvjm2Kbq72oS1JPG9MPsZKsLFx9J-I1V4=s0 "image_tooltip")
+![alt_text](https://lh6.googleusercontent.com/nRr5fcxSAqIxuu3NFXZUM7SOu_3prci91C2WUTseGl9O0D5bux8vs7OOmefyym9BnqRFsfRfpOTWVrIfzdh6wT6Uof3xOMWz8hJDqEAqcey-WAxYoCGTsQUHcxrgSm3Nwj4tCnf5O4q2AVfIKxRQOkj9DIJifoA6BqsMQYtYmZ8SYQBr=s0 "image_tooltip")
 
 
 After the game server “simple-game-server-7qsr8-tlmvh” receives an “EXIT” message, it will shut down the game server, and create a new one. You should see that a new game server “simple-game-server-7qsr8-gszqf” is created, the port is changed from “7040” to “7537”.
@@ -213,5 +213,5 @@ After the game server “simple-game-server-7qsr8-tlmvh” receives an “EXIT�
 
 
 
-![alt_text](https://lh5.googleusercontent.com/1BZyySFMUjkLbHFXqMwdRwGaBI1IY8n1l7o33uPTOH-uxtZXg4Pp8yL0hAI9iddNEBnsF4EmK2DMcn4uhjhWomcn75zyOeAG-hQnTqUpzdmkG7DhGUQM1TeYlgJ0UogDrbWrV7jtSOzgY3vvAMb4NTzKJjbUlxNJn7Bt9Eg6wKJTNAP3=s0 "image_tooltip")
+![alt_text](https://lh6.googleusercontent.com/4j-ItSw0pi-V-7loosXBChW4NMy6TjDOnIDYnSaiyYCVSYBZhnDKu-03ptKH7Mf4GcHiBI9gniTJXcOt-5kW82Z1AYWxric8AVmWezBF3opn99SrC9EXG7qYztiYk9HGG14bm8G9c_DJkL60-wVmr-o1w43vVQDi7O36QbR4LJkJzXN5=s0 "image_tooltip")
 
