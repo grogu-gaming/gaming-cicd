@@ -85,13 +85,13 @@ Write a [cloud build config file](https://gitlab.endpoints.cn-gaming-cicd.cloud.
 Go to the cloud build, create a webhook trigger:
 1. Click **Create trigger**.
 2. Enter the following trigger settings:
-    a. **Name**: A name for your trigger.
-    b. **Event**: Select **Webhook event** to set up your trigger to start builds in response to incoming webhook events.
-    c. **Webhook URL**: Use the webhook URL to authenticate incoming webhook events.
-    d. use an existing secret:
-        1) Select **Use existing**.
-        2) In the **Secret** field, select the name of the secret you want to use from the drop-down menu or follow the instructions to add a secret by resource ID.
-        3) In the **Secret version** field, select your secret version from the drop-down menu.
+    1. **Name**: A name for your trigger.
+    2. **Event**: Select **Webhook event** to set up your trigger to start builds in response to incoming webhook events.
+    3. **Webhook URL**: Use the webhook URL to authenticate incoming webhook events.
+    4. use an existing secret:
+        1. Select **Use existing**.
+        2. In the **Secret** field, select the name of the secret you want to use from the drop-down menu or follow the instructions to add a secret by resource ID.
+        3. In the **Secret version** field, select your secret version from the drop-down menu.
 3. **Configuration**: Copy and paste the inline build config file.
 4. **Substitutions**: define 2 substitution variables using this field.
 
