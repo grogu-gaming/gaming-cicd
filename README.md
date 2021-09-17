@@ -1,5 +1,5 @@
 # Follow the tutorial in the cloud shell
-You can follow the below tutorial by select the **Open in Cloud Shell**, the tutorial will guide you through the whole process.
+You can follow the below tutorial by clicking the **Open in Cloud Shell**, the tutorial will guide you through the whole process.
 
 [![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.png)](https://ssh.cloud.google.com/cloudshell/open?cloudshell_git_repo=https://github.com/grogu-gaming/tutorial.git&cloudshell_tutorial=tutorial.md)
 
