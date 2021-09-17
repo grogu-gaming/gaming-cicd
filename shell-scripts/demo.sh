@@ -1,13 +1,18 @@
 #!/bin/bash
-# chmod +x demo.sh
-# case 1:
-# ./demo.sh --project-id cn-gaming-cicd --secret-name opq-zyj --trigger-name opq-zyj --config terraform/tf-cloud-build.yaml --cluster-name opq-zyj --region us-central1 --create-or-build cluster
-
-# case 2:
-# ./demo.sh --project-id cn-gaming-cicd --secret-name opq-zyj-gs --trigger-name opq-zyj-gs --config terraform/fleet-cloud-build.yaml --cluster-name opq-zyj --region us-central1 --create-or-build gameserver --config-gs fleet_configs_simple.yaml
-
-# case 3:
-# ./demo.sh --project-id cn-gaming-cicd --secret-name opq-zyj-gs --trigger-name opq-zyj-gs --cluster-name opq-zyj --region us-central1 --create-or-build gameserver --config-gs fleet_configs_simple.yaml
+# chmod +x test1.sh
+usage()
+{
+    echo - e "case 1: create a gke trigger and trigger it\n
+    ./demo.sh --project-id cn-gaming-cicd --secret-name opq-zyj --trigger-name opq-zyj --config terraform/tf-cloud-build.yaml --cluster-name opq-zyj --region us-central1 --create-or-build cluster
+    \n
+    case 2: create a gs config trigger and trigger it\n
+    ./demo.sh --project-id cn-gaming-cicd --secret-name opq-zyj-gs --trigger-name opq-zyj-gs --config terraform/fleet-cloud-build.yaml --cluster-name opq-zyj --region us-central1 --create-or-build gameserver --config-gs fleet_configs_simple.yaml
+    \n
+    case 3: after you created the trigger, you want to trigger it to change the game server configuration\n
+    ./demo.sh --project-id cn-gaming-cicd --secret-name opq-zyj-gs --trigger-name opq-zyj-gs --cluster-name opq-zyj --region us-central1 --create-or-build gameserver --config-gs fleet_configs_simple.yaml
+    \n
+    "
+}
 
 CREATE="NULL"
 while [ ! -z "$1" ]; do
@@ -43,9 +48,13 @@ while [ ! -z "$1" ]; do
      --create-or-build)
          shift
          CREATE=$1
+         ;;
+     --help|--h)
+         usage
          ;;     
      *)
-        echo "unknown parameters"
+        echo "error: unknown parameters"
+        echo "please use --help or -h to see the usage"
         ;;
   esac
 shift
