@@ -3,7 +3,7 @@ You can follow the below tutorial by clicking the **Open in Cloud Shell**, the t
 
 [![Open in Cloud Shell](https://gstatic.com/cloudssh/images/open-btn.png)](https://ssh.cloud.google.com/cloudshell/open?cloudshell_git_repo=https://github.com/grogu-gaming/tutorial.git&cloudshell_tutorial=tutorial.md)
 
-You can also refer to the following steps.
+For more information, you can also refer to the following steps.
 
 ## Set up GitLab SSH key
 
@@ -126,7 +126,7 @@ Write a [fleet config file](https://gitlab.endpoints.cn-gaming-cicd.cloud.goog/g
     In this example, the base64 encoded token is “YWJj”, if the token is found in the first 3 bytes within the packet, it will be removed and sended the rest of the message to the “127.0.0.1:7654”, which is listened by the simple game server. 
     
     
-```
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
