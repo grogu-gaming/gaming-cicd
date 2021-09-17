@@ -2,7 +2,8 @@
 # chmod +x demo.sh
 usage()
 {
-    echo - e "case 1: create a gke trigger and trigger it\n
+    printf "
+    case 1: create a gke trigger and trigger it\n
     ./demo.sh --project-id cn-gaming-cicd --secret-name opq-zyj --trigger-name opq-zyj --config terraform/tf-cloud-build.yaml --cluster-name opq-zyj --region us-central1 --create-or-build cluster
     \n
     case 2: create a gs config trigger and trigger it\n
