@@ -1,5 +1,5 @@
 #!/bin/bash
-# chmod +x test1.sh
+# chmod +x demo.sh
 usage()
 {
     echo - e "case 1: create a gke trigger and trigger it\n
