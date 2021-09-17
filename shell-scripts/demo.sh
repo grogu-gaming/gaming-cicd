@@ -3,16 +3,16 @@
 usage()
 {
     printf "
-    case 1: create a gke trigger and trigger it\n
-    ./demo.sh --project-id cn-gaming-cicd --secret-name opq-zyj --trigger-name opq-zyj --config terraform/tf-cloud-build.yaml --cluster-name opq-zyj --region us-central1 --create-or-build cluster
-    \n
-    case 2: create a gs config trigger and trigger it\n
-    ./demo.sh --project-id cn-gaming-cicd --secret-name opq-zyj-gs --trigger-name opq-zyj-gs --config terraform/fleet-cloud-build.yaml --cluster-name opq-zyj --region us-central1 --create-or-build gameserver --config-gs fleet_configs_simple.yaml
-    \n
-    case 3: after you created the trigger, you want to trigger it to change the game server configuration\n
-    ./demo.sh --project-id cn-gaming-cicd --secret-name opq-zyj-gs --trigger-name opq-zyj-gs --cluster-name opq-zyj --region us-central1 --create-or-build gameserver --config-gs fleet_configs_simple.yaml
-    \n
-    "
+case 1: create a gke trigger and trigger it\n
+./demo.sh --project-id cn-gaming-cicd --secret-name opq-zyj --trigger-name opq-zyj --config terraform/tf-cloud-build.yaml --cluster-name opq-zyj --region us-central1 --create-or-build cluster
+\n
+case 2: create a gs config trigger and trigger it\n
+./demo.sh --project-id cn-gaming-cicd --secret-name opq-zyj-gs --trigger-name opq-zyj-gs --config terraform/fleet-cloud-build.yaml --cluster-name opq-zyj --region us-central1 --create-or-build gameserver --config-gs fleet_configs_simple.yaml
+\n
+case 3: after you created the trigger, you want to trigger it to change the game server configuration\n
+./demo.sh --project-id cn-gaming-cicd --secret-name opq-zyj-gs --trigger-name opq-zyj-gs --cluster-name opq-zyj --region us-central1 --create-or-build gameserver --config-gs fleet_configs_simple.yaml
+\n
+"
 }
 
 CREATE="NULL"
