@@ -5,7 +5,7 @@ You can follow the below tutorial by clicking the **Open in Cloud Shell**, the t
 
 You can also refer to the following steps.
 
-## Setting up GitLab SSH key
+## Set up GitLab SSH key
 
 Reference: [how to generate a SSH key](https://gitlab.endpoints.cn-gaming-cicd.cloud.goog/help/ssh/README#generating-a-new-ssh-key-pair)
 
@@ -63,7 +63,7 @@ Type yes and press Enter.
 You should receive a **Welcome to GitLab, @username! **Message.
 
 
-## Save SSH key to secret manager
+## Save SSH key to Secret Manager
 
 On the **Secret Manager** page, click **Create Secret**.
 
@@ -79,7 +79,7 @@ Leave the **Regions** section unchanged.
 Click the **Create secret** button to create your secret.
 
 
-## Setting up GKE cluster and Agones using one command
+## Set up GKE cluster and Agones
 
 
 Write [terraform scripts](https://gitlab.endpoints.cn-gaming-cicd.cloud.goog/gaming-ci-cd-automation/core/-/blob/main/main.tf) to create a VPC and GKE cluster, use Helm to install Agones.
@@ -114,8 +114,7 @@ curl -X POST -H "application/json" "https://cloudbuild.googleapis.com/v1/project
 
 
 
-## Apply the Configuration of the Fleet by push events
-
+## Apply the configuration of the Fleet by push events
 
 
 Write a [fleet config file](https://gitlab.endpoints.cn-gaming-cicd.cloud.goog/gaming-ci-cd-automation/core/-/blob/main/modules/agones/fleet_configs_simple.yaml).In this demo, we use the simple game server to test the Quilkin proxy. 
