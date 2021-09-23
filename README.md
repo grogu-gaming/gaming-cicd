@@ -82,8 +82,8 @@ Click the **Create secret** button to create your secret.
 ## Set up GKE cluster and Agones
 
 
-Write [terraform scripts](https://gitlab.endpoints.cn-gaming-cicd.cloud.goog/gaming-ci-cd-automation/core/-/blob/main/main.tf) to create a VPC and GKE cluster, use Helm to install Agones.
-Write a [cloud build config file](https://gitlab.endpoints.cn-gaming-cicd.cloud.goog/gaming-ci-cd-automation/core/-/blob/main/cloud-build/cloud_build_terraform.yaml) to apply terraform scripts. It includes the following steps:
+We will use [terraform scripts](https://gitlab.endpoints.cn-gaming-cicd.cloud.goog/gaming-ci-cd-automation/core/-/blob/main/main.tf) to create a VPC and GKE cluster, use Helm to install Agones.
+We will use a [cloud build config file](https://gitlab.endpoints.cn-gaming-cicd.cloud.goog/gaming-ci-cd-automation/core/-/blob/main/cloud-build/cloud_build_terraform.yaml) to apply terraform scripts. It includes the following steps:
 1. SSH authentication and clone the Gitlab repository
 2. Replace the project id field
 3. Replace the cluster name field
@@ -120,7 +120,7 @@ curl -X POST -H "application/json" "https://cloudbuild.googleapis.com/v1/project
 ## Apply the configuration of the Fleet by push events
 
 
-Write a [fleet config file](https://gitlab.endpoints.cn-gaming-cicd.cloud.goog/gaming-ci-cd-automation/core/-/blob/main/modules/agones/fleet_configs_simple.yaml).In this demo, we use the simple game server to test the Quilkin proxy. 
+We will use a [fleet config file](https://gitlab.endpoints.cn-gaming-cicd.cloud.goog/gaming-ci-cd-automation/core/-/blob/main/modules/agones/fleet_configs_simple.yaml).In this demo, we use the simple game server to test the Quilkin proxy. 
 1. Create a fleet with 2 replica simple game servers. we’ll take the example container  that Agones provides for the simple game server.
 2. Create a ConfigMap to store the yaml for a static configuration for Quilkin that will accept connections on port 26002 and route then to the simple game server on port 7654.
         
@@ -166,7 +166,7 @@ data:
 ```    
 3. Run Quilkin alongside each dedicated game server as a sidecar.
 
-Write the [cloud build config file](https://gitlab.endpoints.cn-gaming-cicd.cloud.goog/gaming-ci-cd-automation/core/-/blob/main/cloud-build/cloud_build_fleet_configs.yaml) to apply the fleet configurations. It includes the following steps:
+We will use the [cloud build config file](https://gitlab.endpoints.cn-gaming-cicd.cloud.goog/gaming-ci-cd-automation/core/-/blob/main/cloud-build/cloud_build_fleet_configs.yaml) to apply the fleet configurations. It includes the following steps:
 1. SSH authentication and clone the Gitlab repository
 2. Connect the GKE cluster
 3. Apply the fleet_config.yaml file
@@ -229,4 +229,6 @@ After the game server “simple-game-server-7qsr8-tlmvh” receives an “EXIT�
 
 
 ![alt_text](https://lh6.googleusercontent.com/4j-ItSw0pi-V-7loosXBChW4NMy6TjDOnIDYnSaiyYCVSYBZhnDKu-03ptKH7Mf4GcHiBI9gniTJXcOt-5kW82Z1AYWxric8AVmWezBF3opn99SrC9EXG7qYztiYk9HGG14bm8G9c_DJkL60-wVmr-o1w43vVQDi7O36QbR4LJkJzXN5=s0 "image_tooltip")
+
+
 
