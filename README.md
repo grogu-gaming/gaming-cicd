@@ -99,12 +99,15 @@ Go to the cloud build, create a webhook trigger:
         1. Select **Use existing**.
         2. In the **Secret** field, select the name of the secret you want to use from the drop-down menu or follow the instructions to add a secret by resource ID.
         3. In the **Secret version** field, select your secret version from the drop-down menu.
-3. **Configuration**: Copy and paste the inline build config file.
+3. **Configuration**: Copy and paste the [cloud build config file](https://gitlab.endpoints.cn-gaming-cicd.cloud.goog/gaming-ci-cd-automation/core/-/blob/main/cloud-build/cloud_build_terraform.yaml).
 4. **Substitutions**: define 2 substitution variables using this field.
 
     
 ![alt_text](https://lh4.googleusercontent.com/yr0xBiBJC3xn_FxX9OfyCcMilj6bNYHwKmZC-fsMGIeXdcYVQB4VDAwAArolk0mrwM0r9MOVGrq_s_2jJ7y97zcbnpE4XG0fbQjhZIFzJtZ0cUc5EG8XlYSG_n_NJsDNpYGIBImxSnrkAdM1vISA5DROKGiWfzunrdFdbTt5MKybKwBH=s0 "image_tooltip")
 
+These substitution variables will be replaced with the parameters passed in the webhook POST request.\
+**_CLUSTER_NAME='$(body.cluster_name)'** specifies the cluster name of the cluster you are going to create.\
+**_REGION='$(body.region)** specifies the region of the cluster.
 
 Use the “curl” command to trigger cloud build, specify the cluster name and the region  using the JSON format, the parameters will be replaced dynamically in the cloud build config file.
 
@@ -168,14 +171,20 @@ Write the [cloud build config file](https://gitlab.endpoints.cn-gaming-cicd.clou
 2. Connect the GKE cluster
 3. Apply the fleet_config.yaml file
 
-Create the substitution variables.
+Create the following substitution variables.
 
     
 
 ![alt_text](https://lh3.googleusercontent.com/Qv6vlAcIdwEUO23cT8iJJIaM9k6BPVHqHsPyJoj2jXfyA9PAUoQojmq9SdQEhlzQrKVOOehrDrScJlGbpdSPFsspk14NwKmHH-9K6BT-n687iphEXDNTFoxPAmziwspcMVdokZQ901ARvl14wekgpbJIxvlKplgoh-LI8l7STFSqPVNb=s0 "image_tooltip")
 
+These substitution variables will be replaced with the parameters passed in the webhook POST request.\
+**_CLUSTER_NAME='$(body.cluster_name)'** specifies the cluster name of the cluster you are going to create.\
+**_REGION='$(body.region)** specifies the region of the cluster.\
+**_CONFIG_FILE='$(body.config_file)'** specifies the config file name of the fleet config file in the GitLab.
 
-Use “curl” command to trigger cloud build, it will apply the fleet configurations with specified yaml file name. In this demo, we use the simple game server to test the Quilkin proxy, so “config_file” is “fleet_configs_simple.yaml”.
+
+
+Use “curl” command to trigger cloud build, it will apply the fleet configurations with specified yaml file name. In this demo, we use the simple game server to test the Quilkin proxy, so “config_file” is “fleet_configs_simple.yaml”. 
 
 ```
 curl -X POST -H "application/json" "https://cloudbuild.googleapis.com/v1/projects/cn-gaming-cicd/triggers/fleet-config-trigger:webhook?key=AIzaSyBe45IJgmgE3Ssoekh77cl3Z1riBmG7N_I&secret=xh8twKFPVoA4SG2J9MxXY20sxD50EMVd" -d '{"cluster_name":"cluster-xyz", "region":"us-central1", "config_file":"fleet_configs_simple.yaml"}'
