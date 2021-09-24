@@ -208,9 +208,6 @@ simple-game-server-nndvr-5gvch  Ready  IP_ADDRESS  PORT_NUMBER  gke-cluster-xyz-
 simple-game-server-nndvr-vqwpl  Ready  IP_ADDRESS  PORT_NUMBER  gke-cluster-xyz-cluster-xyz-node-pool-db3d2ee8-dlg7  11s
 ```
 
-![alt_text](https://lh6.googleusercontent.com/S9xqnfKxvrsS4rxtHiBE-0DIht0huN0tJo0PfcFJErXkKlBLk-C98qrSQrHG84-xLKn8acuOg1M-OQYp2dD3-xkBBWRBOVL-GYONPnP0sfgK10zKhBUv5eaLjM-Xnya9qd2n7nR0HNNEEHbiRTfYQtt-kuhOlt3u1uk6KBUZLLFzSnW8=s0 "image_tooltip")
-
-
 
 ## Test the Quilkin Proxy
 
